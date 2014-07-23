@@ -1,0 +1,16 @@
+
+
+choice("导航选择","请选择需要使用的导航：","原厂导航","第三方导航")
+              case(1)
+                # 原车导航系统启动
+		Run("\ResidentFlash\shinco\Navi\SHNNavi.exe")
+
+              case(2)
+                #启动虚拟串口驱动程序
+		RUN("\ResidentFlash\vspd\vspd_starter.exe") 
+		Sleep(200)
+		Run("\ResidentFlash\shinco\Navi\SHNNavi.exe")
+endchoice
+
+
+Exit

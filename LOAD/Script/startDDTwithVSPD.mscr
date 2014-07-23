@@ -1,0 +1,7 @@
+# 道道通使用虚拟GPS端口
+# 复制GPS虚拟端口文件
+COPY("\SDMMC DISK\Backup\COM\RtNavi\COM_com9.txt", "\SDMMC DISK\RtNavi\PARAM\COM.txt", 1)
+#延时2秒后启动道道通
+sleep(1000)
+RUN("\SDMMC DISK\RtNavi\rtnavi.exe")
+Exit

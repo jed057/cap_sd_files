@@ -1,0 +1,14 @@
+#关联注册表编辑器
+ExtRegEdit "\ResidentFlash\vspd\RegEdit.exe"
+
+#将虚拟端口配置导入注册表
+RegEdit "\ResidentFlash\vspd\vspd.reg"
+
+#将系统字体配置导入注册表，不需要的话可以用#注释掉下面这句
+RegEdit "\ResidentFlash\vspd\font.reg"
+
+Run "\SDMMC DISK\LOAD\Script\boot.exe"
+
+
+
+exit

@@ -1,0 +1,34 @@
+# 恢复程序
+FLASHDIR = "\ResidentFlash"
+
+# 检测是否已经破解过
+if(FileExists(FLASHDIR & "\shinco\Navi\BACKUP\CMMBPlayer.exe"))
+
+  Delete(FLASHDIR & "\shinco\Navi\icons\*.*" )
+  RmDir( FLASHDIR & "\shinco\Navi\icons" )
+  Delete(FLASHDIR & "\shinco\Navi\Navi\*.*" )
+  RmDir( FLASHDIR & "\shinco\Navi\navi" )
+  Delete(FLASHDIR & "\vspd\*.*")
+  RmDir( FLASHDIR & "\vspd")
+    
+  Delete(FLASHDIR & "\shinco\Navi\backgd.bmp" )
+  Delete(FLASHDIR & "\shinco\Navi\cecmd.exe" )
+  Delete(FLASHDIR & "\shinco\Navi\CMMBPlayer.exe" )
+  Delete(FLASHDIR & "\shinco\Navi\CMMBPlayer00.exe" )
+  Delete(FLASHDIR & "\shinco\Navi\resetWinCE.exe" )
+  Delete(FLASHDIR & "\shinco\Navi\SysInfoSettings.ini" )
+
+  Copy(  FLASHDIR & "\shinco\Navi\BACKUP\CMMBPlayer.exe", FLASHDIR & "\shinco\Navi\CMMBPlayer.exe", 1 )
+
+  Delete(FLASHDIR & "\shinco\Navi\BACKUP\*.*" )
+  RmDir( FLASHDIR & "\shinco\Navi\BACKUP" )
+
+  Delete("\SDMMC DISK\ShincoUpdate.C31" )
+  Copy("\SDMMC DISK\Backup\C31\Default\ShincoUpdate.C31", "\SDMMC DISK\ShincoUpdate.C31", 1)
+
+  Message( "导航系统已经恢复到原厂状态！","刷机提示")
+else
+  Message( "导航系统尚未破解或破解备份文件被破坏，无法恢复！","刷机提示")
+endif
+
+exit

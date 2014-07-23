@@ -1,0 +1,55 @@
+# 破解程序
+FLASHDIR = "\ResidentFlash"
+
+# 检测是否已经破解过
+if(FileExists(FLASHDIR & "\shinco\Navi\BACKUP\CMMBPlayer.exe"))
+  x=0
+  x=Question( "系统已破解过，再次破解请按'是'，返回请按'否'。", "刷机提示",  "YesNo" )
+  if(x=1)
+    XCopy("\SDMMC DISK\PATCH\*.*", FLASHDIR & "\shinco\Navi", 1)
+    Copy(FLASHDIR & "\shinco\Navi\BACKUP\CMMBPlayer.exe", FLASHDIR & "\shinco\Navi\CMMBPlayer00.exe", 1)
+    
+    MkDir(FLASHDIR & "\shinco\Navi\Icons")
+    XCopy("\SDMMC DISK\PATCH\Icons\*.*", FLASHDIR & "\shinco\Navi\Icons", 1)
+ 
+    MkDir(FLASHDIR & "\shinco\Navi\Navi")
+    XCopy("\SDMMC DISK\PATCH\Navi\*.*", FLASHDIR & "\shinco\Navi\Navi", 1)
+
+    MkDir(FLASHDIR & "\vspd")
+    XCopy("\SDMMC DISK\PATCH\vspd\*.*", FLASHDIR & "\vspd", 1)
+
+    #Message( "你的导航系统已破解完成，移动电视功能被替换为系统重启功能！","破解完成提示")
+	
+  else
+    exit
+  endif
+
+
+else
+  MkDir(FLASHDIR & "\shinco\Navi\BACKUP")
+  Copy(FLASHDIR & "\shinco\Navi\CMMBPlayer.exe", FLASHDIR & "\shinco\Navi\BACKUP\CMMBPlayer.exe", 1)
+  Copy(FLASHDIR & "\shinco\Navi\BACKUP\CMMBPlayer.exe", FLASHDIR & "\shinco\Navi\CMMBPlayer00.exe", 1)
+  XCopy("\SDMMC DISK\PATCH\*.*", FLASHDIR & "\shinco\Navi\", 1)
+ 
+  MkDir(FLASHDIR & "\shinco\Navi\Icons")
+  XCopy("\SDMMC DISK\PATCH\Icons\*.*", FLASHDIR & "\shinco\Navi\Icons", 1)
+ 
+  MkDir(FLASHDIR & "\shinco\Navi\Navi")
+  XCopy("\SDMMC DISK\PATCH\Navi\*.*", FLASHDIR & "\shinco\Navi\Navi", 1)
+
+    MkDir(FLASHDIR & "\vspd")
+    XCopy("\SDMMC DISK\PATCH\vspd\*.*", FLASHDIR & "\vspd", 1)
+
+    #Message( "你的导航系统已破解完成，移动电视功能被替换为系统重启功能！","破解完成提示")
+
+endif
+
+Delete("\SDMMC DISK\ShincoUpdate.C31" )
+Copy("\SDMMC DISK\Backup\C31\Cracked\ShincoUpdate.C31", "\SDMMC DISK\ShincoUpdate.C31", 1)
+
+Message( "导航系统破解完成！点'OK'重启系统以生效！", "刷机提示")
+
+RUN(FLASHDIR & "\shinco\Navi\ResetWince.exe" )
+
+
+exit

@@ -1,0 +1,17 @@
+# 独立运行凯立德导航（使用硬件GPS端口）
+# 复制GPS虚拟端口文件
+
+x=0
+x=FileExists("\SDMMC DISK\Backup\COM\NaviOne\NaviConfig_COM1.dll")
+if(x=1)
+  COPY("\SDMMC DISK\Backup\COM\NaviOne\NaviConfig_COM1.dll", "\SDMMC DISK\NaviOne\NaviResFile\NaviConfig.dll", 1) 
+  Sleep(1000)
+else
+  x=(Question( "没有找到对应的端口配置文件！选择'是'将继续运行但可能不能正常搜星，选择'否'将终止导航启动。", "警告", "YesNo"))
+endif
+
+if(x=1)
+  RUN("\SDMMC DISK\NaviOne\NaviOne.exe")
+endif  
+
+Exit

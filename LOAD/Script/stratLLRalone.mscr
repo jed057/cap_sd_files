@@ -1,0 +1,7 @@
+# 独立运行MAPBAR导航（使用硬件GPS端口）
+# 复制GPS虚拟端口文件
+COPY("\SDMMC DISK\Backup\COM\mapbar\gps_COM1.ini", "\SDMMC DISK\mapbar\other\gps.ini", 1) 
+#延时启动
+Sleep(1000)
+RUN("\SDMMC DISK\mapbar\Mapbar.exe")
+Exit

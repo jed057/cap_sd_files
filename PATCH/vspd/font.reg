@@ -1,0 +1,10 @@
+REGEDIT4
+
+[HKEY_LOCAL_MACHINE/System/GDI/SYSFNT]
+"Nm"="Tahoma"
+"Ht"=dword:00000020
+"It"=dword:00000000
+"Wt"=dword:00000190
+"CS"=dword:00000000
+
+
